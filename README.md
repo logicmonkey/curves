@@ -25,6 +25,10 @@ lm_tacnode.ggb
     * tangent conic T2 (my work using Lagrange's approach as described by Wildberger)
     * my parametrization using algorithmic approach
 
+lm_descartes.ggb
+  Folium of Descartes
+    * implicit and parametrized (probably from Wilberger's Differential Geometry course)
+
 lm_lemnscate.ggb
     * Bernoulli (implicit) & Gerono (parametrized)
 
