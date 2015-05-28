@@ -35,8 +35,20 @@ lm_lemnscate.ggb
 lm_ramphoid_cusp.ggb
     * parametrized
 
+lm_ceva.ggb
+  Trisectrix of Ceva
+    * rational parametrization and implicit equation1
+
 lm_pappus.ggb
     * colinear intersections
 
 lm_monge.ggb
     * colinear circumcentres
+
+lm_trefoil_surface.ggb
+    * two parameter surface (taken from Euler Math Toolbox page)
+
+lm_trefoil_spacecurve.ggb
+    * simplest Trefoil knot description (inc planar curve)
+
+
