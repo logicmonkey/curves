@@ -37,7 +37,7 @@ lm_ramphoid_cusp.ggb
 
 lm_ceva.ggb
   Trisectrix of Ceva
-    * rational parametrization and implicit equation1
+    * rational parametrization and implicit equation
 
 lm_pappus.ggb
     * colinear intersections
@@ -49,6 +49,7 @@ lm_trefoil_surface.ggb
     * two parameter surface (taken from Euler Math Toolbox page)
 
 lm_trefoil_spacecurve.ggb
-    * simplest Trefoil knot description (inc planar curve)
+    * simplest trefoil knot description (inc planar curve)
 
-
+lm_watt.ggb
+    * implicit cartesian equation for Watt's curve
