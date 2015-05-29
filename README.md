@@ -6,8 +6,7 @@ lm_trifolium.ggb
     * implicit cartesian equation
     * tangent line T1
     * tangent conic T2
-  To do:
-    * should parametrize nicely as its relative order is one
+    * my parametrization using simple relative degree 1 approach
 
 lm_bernoulli.ggb
   Lemniscate of Bernoulli with:
