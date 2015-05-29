@@ -1,5 +1,17 @@
 Catalogue of various GeoGebra tinkerings...
 
+To do...
+
+lm_trifolium.ggb
+  Includes a slider for constant 'a' which is just a scaling factor
+    * implicit cartesian equation
+  Tasks:
+    * should parametrize nicely as its relative order is one
+    * tangent line T1
+    * tangent conic T2
+
+Done as far as I can be bothered...
+
 lm_bernoulli.ggb
   Lemniscate of Bernoulli with:
     * tangent line T1
@@ -53,3 +65,4 @@ lm_trefoil_spacecurve.ggb
 
 lm_watt.ggb
     * implicit cartesian equation for Watt's curve
+
