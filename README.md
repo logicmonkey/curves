@@ -1,16 +1,13 @@
 Catalogue of various GeoGebra tinkerings...
 
-To do...
-
 lm_trifolium.ggb
   Includes a slider for constant 'a' which is just a scaling factor
+    * all work done in trifolium_tangents.wxm
     * implicit cartesian equation
-  Tasks:
-    * should parametrize nicely as its relative order is one
     * tangent line T1
     * tangent conic T2
-
-Done as far as I can be bothered...
+  To do:
+    * should parametrize nicely as its relative order is one
 
 lm_bernoulli.ggb
   Lemniscate of Bernoulli with:
