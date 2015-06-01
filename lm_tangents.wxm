@@ -1,51 +1,92 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 14.12.0 ] */
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: title   start ]
+Tangent Lines & Tangent Conics
+
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+The implicit equations defining the tangent lines and tangent conics for various curves are generated
+using Lagrange's approach as per Norman Wildberger's rational differential geometry lectures.
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-/*
- *   TRIFOLIUM                               p: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2
- *   LEMNISCATE OF BERNOULLI p: (x^2 + y^2)^2 - 2*(x^2 - y^2)
- *   LEMNISCATE OF GERONO      p: x^4 -x^2+y^2
- *   BESACE                                    p: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2
- *   TRISECTRIX OF CEVA              p: (x^2 + y^2)^3 - (3*x^2 - y^2)^2
- *   WALKER'S TACNODE               p: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2
- *   RAMPHOID CUSP                     p: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2
- *   TRICUSPOID                             p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3
- */
-end;
+/* TRIFOLIUM               */  p1:  (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2           $
+/* LEMNISCATE OF BERNOULLI */  p2:  (x^2 + y^2)^2 - 2*(x^2 - y^2)             $
+/* LEMNISCATE OF GERONO    */  p3:  x^4 -x^2+y^2                              $
+/* BESACE                  */  p4:  (1+a^2)*x^4+2*a*x^2*y-x^2+y^2             $
+/* TRISECTRIX OF CEVA      */  p5:  (x^2 + y^2)^3 - (3*x^2 - y^2)^2           $
+/* WALKER'S TACNODE        */  p6:  2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2       $
+/* RAMPHOID CUSP           */  p7:  x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2     $
+/* TRICUSPOID              */  p8:  (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3  $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Set polynomial 'p' to one of the above curves p1..p8
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+p:p1 $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Expand the terms for the curve at a point [x+r, y+s] relative to [x, y]
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+prs:p, x=x+r, y=y+s $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3;
+prse: ratexpand(prs)$
 /* [wxMaxima: input   end   ] */
 
-/* [wxMaxima: input   start ] */
-prs:p, x=x+r, y=y+s;
-/* [wxMaxima: input   end   ] */
+/* [wxMaxima: comment start ]
+Discard all terms higher than order 2. Use the Taylor function to do this, remembering that the Taylor
+expansion for a polynomial, is just the polynomial itself. So we're just using the high order term discard
+operation here.
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-prse: ratexpand(prs);
+pqrs: taylor(prse,[x,y],0,2) $
 /* [wxMaxima: input   end   ] */
 
-/* [wxMaxima: input   start ] */
-pqrs: taylor(prse,[x,y],0,2);
-/* [wxMaxima: input   end   ] */
+/* [wxMaxima: comment start ]
+Now move back to the point [x, y] by subtracting [r, s] and re-evaluating the truncated polynomial.
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-pq: pqrs, x=x-r, y=y-s;
+pq: pqrs, x=x-r, y=y-s $
 /* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+T2 is the TANGENT CONIC for p:
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
 T2: ratsimp(pq)=0;
 /* [wxMaxima: input   end   ] */
 
-/* [wxMaxima: input   start ] */
-plrs: taylor(prse,[x,y],0,1);
-/* [wxMaxima: input   end   ] */
+/* [wxMaxima: comment start ]
+To get the tangent line, discard all quadratic terms and above:
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-pl: plrs, x=x-r, y=y-s;
+plrs: taylor(prse,[x,y],0,1) $
 /* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Again move back to [x, y] and re-evaluate:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+pl: plrs, x=x-r, y=y-s $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+T1 is the TANGENT LINE for p:
+   [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
 T1: ratsimp(pl)=0;
