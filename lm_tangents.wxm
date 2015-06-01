@@ -1,0 +1,55 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.0 ] */
+
+/* [wxMaxima: input   start ] */
+/*
+ *   TRIFOLIUM                               p: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2
+ *   LEMNISCATE OF BERNOULLI p: (x^2 + y^2)^2 - 2*(x^2 - y^2)
+ *   LEMNISCATE OF GERONO      p: x^4 -x^2+y^2
+ *   BESACE                                    p: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2
+ *   TRISECTRIX OF CEVA              p: (x^2 + y^2)^3 - (3*x^2 - y^2)^2
+ *   WALKER'S TACNODE               p: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2
+ *   RAMPHOID CUSP                     p: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2
+ *   TRICUSPOID                             p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3
+ */
+end;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+prs:p, x=x+r, y=y+s;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+prse: ratexpand(prs);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+pqrs: taylor(prse,[x,y],0,2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+pq: pqrs, x=x-r, y=y-s;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+T2: ratsimp(pq)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plrs: taylor(prse,[x,y],0,1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+pl: plrs, x=x-r, y=y-s;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+T1: ratsimp(pl)=0;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
