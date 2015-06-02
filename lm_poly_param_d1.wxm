@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 15.04.0 ] */
+/* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: title   start ]
 Parametrizations of Polynomials 
@@ -7,26 +7,25 @@ with Relative Degree One
    [wxMaxima: title   end   ] */
 
 /* [wxMaxima: input   start ] */
-/*
-( name: TRIFOLIUM              , f: (x^2+y^2)*(y^2+x*(x+1))-4*x*y^2 )$
-( name: TRISECTRIX_OF_EIDSWICK , f: x^3-3*x*y^2-3*x^2+y^2           )$
-*/
-( name: TRISECTRIX_OF_MACLAURIN, f: x^3+x*y^2+y^2-3*x^2             )$
 
-f: ratexpand(f);
+(n1: "TRIFOLIUM"              , f1: (x^2+y^2)*(y^2+x*(x+1))-4*x*y^2 )$
+(n2: "TRISECTRIX OF EIDSWICK" , f2: x^3-3*x*y^2-3*x^2+y^2           )$
+(n3: "TRISECTRIX OF MACLAURIN", f3: x^3+x*y^2+y^2-3*x^2             )$
+
+(name: n1, f: f1) $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
 Find the relative degree of the poynomial by finding its highest and lowest powers.
 Take the first derivative to bring the power to the front and then divide through to
 clean up:
-              n = (ax^n)' * x / ax^n
+         n = (ax^n)' * x / ax^n
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
 (dmax: 0, dmin: 99) $
 
-for ff in args(f) do (
+for ff in args(ratexpand(f)) do (
   d: diff(ff,x)*x/ff + diff(ff,y)*y/ff,
   if d > dmax then dmax: d,
   if d < dmin then dmin: d

@@ -1,9 +1,8 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 15.04.0 ] */
+/* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: title   start ]
 Tangent Lines And Conics
-
    [wxMaxima: title   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -12,14 +11,14 @@ using Lagrange's approach as per Norman Wildberger's rational differential geome
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-/* TRIFOLIUM               */  p1:  (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2           $
-/* LEMNISCATE OF BERNOULLI */  p2:  (x^2 + y^2)^2 - 2*(x^2 - y^2)             $
-/* LEMNISCATE OF GERONO    */  p3:  x^4 -x^2+y^2                              $
-/* BESACE                  */  p4:  (1+a^2)*x^4+2*a*x^2*y-x^2+y^2             $
-/* TRISECTRIX OF CEVA      */  p5:  (x^2 + y^2)^3 - (3*x^2 - y^2)^2           $
-/* WALKER'S TACNODE        */  p6:  2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2       $
-/* RAMPHOID CUSP           */  p7:  x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2     $
-/* TRICUSPOID              */  p8:  (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3  $
+(n1: "TRIFOLIUM:"               , p1: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2          )$
+(n2: "LEMNISCATE OF BERNOULLI:" , p2: (x^2 + y^2)^2 - 2*(x^2 - y^2)            )$
+(n3: "LEMNISCATE OF GERONO:"    , p3: x^4 -x^2+y^2                             )$
+(n4: "BESACE:"                  , p4: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2            )$
+(n5: "TRISECTRIX OF CEVA:"      , p5: (x^2 + y^2)^3 - (3*x^2 - y^2)^2          )$
+(n6: "WALKERS TACNODE:"         , p6: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2      )$
+(n7: "RAMPHOID CUSP:"           , p7: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2    )$
+(n8: "TRICUSPOID:"              , p8: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 )$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -27,7 +26,7 @@ Set polynomial 'p' to one of the above curves p1..p8
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-p:p1 $
+(p: p4, name: n4) $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -39,7 +38,11 @@ prs:p, x=x+r, y=y+s $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-prse: ratexpand(prs)$
+prse: ratexpand(prs);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratfactor(%);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -65,7 +68,7 @@ T2 is the TANGENT CONIC for p:
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-T2: ratsimp(pq)=0;
+T2: ratsimp(pq)=0 $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -89,7 +92,14 @@ T1 is the TANGENT LINE for p:
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-T1: ratsimp(pl)=0;
+T1: ratsimp(pl)=0 $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+p: p=0 $
+print(name,  p)  $
+print("T1:", T1) $
+print("T2:", T2) $
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
