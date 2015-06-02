@@ -1,0 +1,71 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.04.0 ] */
+
+/* [wxMaxima: title   start ]
+Parametrizations of Polynomials 
+with Relative Degree One
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: input   start ] */
+/*
+( name: TRIFOLIUM              , f: (x^2+y^2)*(y^2+x*(x+1))-4*x*y^2 )$
+( name: TRISECTRIX_OF_EIDSWICK , f: x^3-3*x*y^2-3*x^2+y^2           )$
+*/
+( name: TRISECTRIX_OF_MACLAURIN, f: x^3+x*y^2+y^2-3*x^2             )$
+
+f: ratexpand(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Find the relative degree of the poynomial by finding its highest and lowest powers.
+Take the first derivative to bring the power to the front and then divide through to
+clean up:
+              n = (ax^n)' * x / ax^n
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+(dmax: 0, dmin: 99) $
+
+for ff in args(f) do (
+  d: diff(ff,x)*x/ff + diff(ff,y)*y/ff,
+  if d > dmax then dmax: d,
+  if d < dmin then dmin: d
+  ) $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Use the Taylor expansion to find the highest order term and the one below it
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+if dmax-dmin = 1 then (
+  fnum: taylor(f,[x,y],0,dmax-1) - taylor(f,[x,y],0,dmax-2),
+  fden: taylor(f,[x,y],0,dmax  ) - taylor(f,[x,y],0,dmax-1)
+  ) $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+The following should really be conditional on dmax-dmin == 1 too:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+xt: ratsimp(-fnum/fden), x=1, y=t $
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+xt: factor(xt);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+yt: t*xt;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+print("GeoGebra:") $
+display2d: false   $
+print(name, ": curve(", xt, ",", yt, ", t, -60, 60)") $
+display2d: true    $
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
