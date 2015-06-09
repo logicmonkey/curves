@@ -26,7 +26,8 @@ Set polynomial 'p' to one of the above curves p1..p8
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-(p: p4, name: n4) $
+p:    p4 $
+name: n4 $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -38,21 +39,13 @@ prs:p, x=x+r, y=y+s $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-prse: ratexpand(prs);
-/* [wxMaxima: input   end   ] */
+prse: ratexpand( prs )         $
 
-/* [wxMaxima: input   start ] */
-ratfactor(%);
-/* [wxMaxima: input   end   ] */
+prst: ev( prse, x=x*t, y=y*t ) $
 
-/* [wxMaxima: comment start ]
-Discard all terms higher than order 2. Use the Taylor function to do this, remembering that the Taylor
-expansion for a polynomial, is just the polynomial itself. So we're just using the high order term discard
-operation here.
-   [wxMaxima: comment end   ] */
-
-/* [wxMaxima: input   start ] */
-pqrs: taylor(prse,[x,y],0,2) $
+deg0: ratcoef( prst, t, 0 )    $
+deg1: ratcoef( psrt, t, 1 )    $
+deg2: ratcoef( prst, t, 2 )    $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -60,46 +53,23 @@ Now move back to the point [x, y] by subtracting [r, s] and re-evaluating the tr
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-pq: pqrs, x=x-r, y=y-s $
+pl: deg0 + deg1,        x=x-r, y=y-s $
+pq: deg0 + deg1 + deg2, x=x-r, y=y-s $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
-T2 is the TANGENT CONIC for p:
+T1,2 are the TANGENT LINE and TANGENT CONIC at [r, s]
    [wxMaxima: comment end   ] */
-
-/* [wxMaxima: input   start ] */
-T2: ratsimp(pq)=0 $
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: comment start ]
-To get the tangent line, discard all quadratic terms and above:
-   [wxMaxima: comment end   ] */
-
-/* [wxMaxima: input   start ] */
-plrs: taylor(prse,[x,y],0,1) $
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: comment start ]
-Again move back to [x, y] and re-evaluate:
-   [wxMaxima: comment end   ] */
-
-/* [wxMaxima: input   start ] */
-pl: plrs, x=x-r, y=y-s $
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: comment start ]
-T1 is the TANGENT LINE for p:
-   [wxMaxima: comment end   ] */
-
-/* [wxMaxima: input   start ] */
-T1: ratsimp(pl)=0 $
-/* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
 p: p=0 $
-print(name,  p)  $
-print("T1:", T1) $
-print("T2:", T2) $
+
+T1: ratsimp( pl )=0 $
+T2: ratsimp( pq )=0 $
+
+print( name,  p )  $
+print( "T1:", T1 ) $
+print( "T2:", T2 ) $
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
