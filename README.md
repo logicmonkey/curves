@@ -1,8 +1,21 @@
 Catalogue of various GeoGebra tinkerings...
 
+lm_quadrifolium.ggb
+    * all work done in lm_tangents.wxm (updated)
+    * implicit cartesian equation
+    * tangent line T1
+    * tangent conic T2
+    * TO DO * my parametrization using simple relative degree 2 approach
+
+lm_doublefolium.ggb
+    * all work done in lm_tangents.wxm (updated)
+    * implicit cartesian equation
+    * tangent line T1
+    * tangent conic T2
+    * my parametrization using simple relative degree 1 approach (maxima file updated)
+
 lm_trifolium.ggb
   Includes a slider for constant 'a' which is just a scaling factor
-    * all work done in trifolium_tangents.wxm
     * implicit cartesian equation
     * tangent line T1
     * tangent conic T2
