@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 15.04.0 ] */
+/* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: title   start ]
 Parametrizations of Polynomials 
@@ -10,8 +10,9 @@ with Relative Degree One
 (n1: "TRIFOLIUM"              , f1: (x^2+y^2)*(y^2+x*(x+1))-4*x*y^2 )$
 (n2: "TRISECTRIX OF EIDSWICK" , f2: x^3-3*x*y^2-3*x^2+y^2           )$
 (n3: "TRISECTRIX OF MACLAURIN", f3: x^3+x*y^2+y^2-3*x^2             )$
+(n4: "DOUBLE FOLIUM",           f4: (x^2 + y^2)^2 - 4*x*y^2         )$
 
-(name: n3, f: f3) $
+(name: n4, f: f4) $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
