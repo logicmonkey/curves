@@ -5,7 +5,7 @@ lm_quadrifolium.ggb
     * implicit cartesian equation
     * tangent line T1
     * tangent conic T2
-    * TO DO * my parametrization using simple relative degree 2 approach
+    * my parametrization using relative degree 2 approach
 
 lm_doublefolium.ggb
     * all work done in lm_tangents.wxm (updated)
