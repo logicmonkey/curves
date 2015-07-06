@@ -1,5 +1,8 @@
 Maxima files...
 
+lm_tangents.wxm
+    * Lagrange approach to getting tangent line and tangent conic equations
+
 lm_ratparam_d1.wxm
     * rational parametrization of curves with relative degree one
 
