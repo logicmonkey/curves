@@ -1,4 +1,18 @@
+Maxima files...
+
+lm_ratparam_d1.wxm
+    * rational parametrization of curves with relative degree one
+
+lm_ratparam_d2.wxm
+    * rational parametrization of curves with relative degree two
+    * also works for degree one, but the parametrizations are
+      computationally sub-optimal
+
 Catalogue of various GeoGebra tinkerings...
+
+lm_cardioid.ggb
+    * lm_tangents updated
+    * lm_ratparam_d2.wxm created (parametrizations done there)
 
 lm_quadrifolium.ggb
     * all work done in lm_tangents.wxm (updated)
