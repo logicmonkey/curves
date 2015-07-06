@@ -1,0 +1,169 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.0 ] */
+
+/* [wxMaxima: title   start ]
+The Rational Parametrization of 10 Plane Curves
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+This Maxima file parametrizes plane curves from their implicit equations using the method 
+for those of relative degree two as described in Dave Boyles' article: 
+
+"Finding Rational Parametric Curves Of Relative Degree One or Two", Dave Boyles.
+    MAA College Mathematics Journal November 2010
+
+I have kept Boyles' naming convention for D, P, Q, R, tau and tau0.
+
+The lemniscates of Bernoulli and Gerono have sub-optimal parametrizations. I have cleaner
+ones using (respectively) a pencil of circles and a pencil of parabolas.
+
+Similarly, the Double Folium and Trifolium parametrizations could be better as these are 
+implicit equations of relative degree one and need not have this algorithm applied. The
+method does still work though using a Q polynomial equal to 1.
+
+Some curves are defined elsewhere with different multiplying constants. These are scaling
+factors and don't affect the shape of the curve. Occasionally, I have made constants equal
+to one, to clean up the implicit equations. In the case of the Besace, I have left the 'a'
+constant in as it is key to the Y scaling and therefore the shape of the curve. If you
+plug this in to GeoGebra I suggest using a slider for 'a'.
+
+I am not a Maxima expert. Less still any kind of mathematician! I'm sure there are better 
+ways to implement the algorithm (especially the P and Q selection step), but I've checked
+all ten curves and the parametrizations do all match their associated implicit couterparts.
+
+Usage:
+  Set one (only) of the curve names to true.
+  
+  Ctrl-R to run.
+
+  Expressions for x(t) and y(t) are the last of the outputs at the end of the file.
+
+                                                                    -=: LogicMonkey :=-
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+BERNOULLI:    false $
+GERONO:       false $
+BESACE:       false $
+TRICEVA:      false $
+TACNODE:      false $
+RAMPHOID:     false $
+DBLFOLIUM:    false $
+QUADRIFOLIUM: false $
+CARDIOID:     false $
+TRIFOLIUM:    false $
+
+TRIFOLIUM:true $
+
+(if ( BERNOULLI    ) then eq:           (x^2 + y^2)^2 = 2*(x^2 - y^2)   )$
+(if ( GERONO       ) then eq:                     x^4 = x^2 - y^2       )$
+(if ( BESACE       ) then eq: (1+a^2)*x^4 + 2*a*x^2*y = x^2 - y^2       )$
+(if ( TRICEVA      ) then eq:           (x^2 + y^2)^3 = (3*x^2 - y^2)^2 )$
+(if ( TACNODE      ) then eq:   2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2 = 0 )$
+(if ( RAMPHOID     ) then eq: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2 = 0 )$
+(if ( DBLFOLIUM    ) then eq:           (x^2 + y^2)^2 = 4*x*y^2         )$
+(if ( QUADRIFOLIUM ) then eq:           (x^2 + y^2)^3 = (2*x*y)^2       )$
+(if ( CARDIOID     ) then eq:         (x^2+y^2-2*x)^2 = 4*(x^2+y^2)     )$
+(if ( TRIFOLIUM    ) then eq: (x^2+y^2)*(y^2+x*(x+1)) = 4*x*y^2         )$
+
+eq: ratexpand( eq );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eqt: eq, x=t, y=t $
+order: hipow( eqt, t ) $
+
+eqtau: eq, y=x*tau;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eqtau: ratsimp( eqtau / x^(order-2) );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eqtau: factor( eqtau );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+extau: lhs( eqtau ) - rhs( eqtau );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A: ratcoef( extau, x, 2 );
+B: ratcoef( extau, x, 1 );
+C: ratcoef( extau, x, 0 );
+
+D: factor( B^2-4*A*C );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+We want discriminant D = B^2-4AC = P^2*Q (a square * a polynomial Q)
+
+Where Q = alpha + beta*tau + gamma*tau^2  
+
+Case by case manual rearrangement of D to determine P and Q:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+(if ( BERNOULLI    ) then (P: 2*(1 + tau^2),             Q: 2*(1 - tau^2)   ))$
+(if ( GERONO       ) then (P: 2,                         Q: (1 - tau^2)     ))$
+(if ( BESACE       ) then (P: 2,                         Q: (a^2+1 - tau^2) ))$
+(if ( TRICEVA      ) then (P: 2*(tau^2 - 3)*(tau^2 + 1), Q: (tau^2 + 1)     ))$
+(if ( TACNODE      ) then (P: tau,                       Q: (12*tau^2 + 1)  ))$
+(if ( RAMPHOID     ) then (P: tau,                       Q: tau*(4- 3*tau)  ))$
+(if ( DBLFOLIUM    ) then (P: 4*tau^2,                   Q: 1               ))$
+(if ( QUADRIFOLIUM ) then (P: 4*tau*(1+tau^2),           Q: (1+tau^2)       ))$
+(if ( CARDIOID     ) then (P: 4*(1+tau^2),               Q: (1+tau^2)       ))$
+(if ( TRIFOLIUM    ) then (P: (3*tau^2 - 1),             Q: 1               ))$
+
+P: ratsimp( P );
+Q: ratsimp( Q );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Examine the coefficients of Q to get tau0:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+alpha: ratcoef( Q, tau, 0 ) $
+beta:  ratcoef( Q, tau, 1 ) $
+gamma: ratcoef( Q, tau, 2 ) $
+
+(if (alpha = 0) then (
+  tau0 : beta / (t^2 - gamma)
+) else (
+  tau0 : 4*alpha*t/(t^2 - 2*beta*t + beta^2 -4*alpha*gamma)
+));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+R^2 = Q(tau0)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+(if (alpha = 0) then (
+/*  Qtau0: (t * beta / (t^2 - gamma))^2 */
+  R : t * beta / (t^2 - gamma)
+) else (
+/*  Qtau0: alpha * (t^2 - t*beta^2 + 4*alpha*gamma)^2 / (t^2 - 2*beta*t + beta^2 -4*alpha*gamma)^2 */
+  R : sqrt(alpha) * (t^2 - t*beta^2 + 4*alpha*gamma) / (t^2 - 2*beta*t + beta^2 -4*alpha*gamma)
+));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+P: P, tau=tau0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+xt: (-B + P*R )/( 2*A ), tau=tau0 $
+
+xt: ratsimp( xt );
+yt: ratsimp( xt*tau0 );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
