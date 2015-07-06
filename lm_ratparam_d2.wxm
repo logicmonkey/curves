@@ -1,8 +1,8 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 14.12.0 ] */
+/* [ Created with wxMaxima version 15.04.0 ] */
 
 /* [wxMaxima: title   start ]
-The Rational Parametrization of 10 Plane Curves
+The Rational Parametrization of Plane Curves
    [wxMaxima: title   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -14,8 +14,8 @@ for those of relative degree two as described in Dave Boyles' article:
 
 I have kept Boyles' naming convention for D, P, Q, R, tau and tau0.
 
-The lemniscates of Bernoulli and Gerono have sub-optimal parametrizations. I have cleaner
-ones using (respectively) a pencil of circles and a pencil of parabolas.
+The lemniscates of Bernoulli and Gerono have sub-optimal parametrizations. I have derived
+cleaner ones using (respectively) a pencil of circles and a pencil of parabolas.
 
 Similarly, the Double Folium and Trifolium parametrizations could be better as these are 
 implicit equations of relative degree one and need not have this algorithm applied. The
@@ -52,8 +52,9 @@ DBLFOLIUM:    false $
 QUADRIFOLIUM: false $
 CARDIOID:     false $
 TRIFOLIUM:    false $
+CIRCLE:       false $
 
-TRIFOLIUM:true $
+CIRCLE:true $
 
 (if ( BERNOULLI    ) then eq:           (x^2 + y^2)^2 = 2*(x^2 - y^2)   )$
 (if ( GERONO       ) then eq:                     x^4 = x^2 - y^2       )$
@@ -65,6 +66,7 @@ TRIFOLIUM:true $
 (if ( QUADRIFOLIUM ) then eq:           (x^2 + y^2)^3 = (2*x*y)^2       )$
 (if ( CARDIOID     ) then eq:         (x^2+y^2-2*x)^2 = 4*(x^2+y^2)     )$
 (if ( TRIFOLIUM    ) then eq: (x^2+y^2)*(y^2+x*(x+1)) = 4*x*y^2         )$
+(if ( CIRCLE       ) then eq:                 x^2+y^2 = 1               )$
 
 eq: ratexpand( eq );
 /* [wxMaxima: input   end   ] */
@@ -115,6 +117,7 @@ Case by case manual rearrangement of D to determine P and Q:
 (if ( QUADRIFOLIUM ) then (P: 4*tau*(1+tau^2),           Q: (1+tau^2)       ))$
 (if ( CARDIOID     ) then (P: 4*(1+tau^2),               Q: (1+tau^2)       ))$
 (if ( TRIFOLIUM    ) then (P: (3*tau^2 - 1),             Q: 1               ))$
+(if ( CIRCLE       ) then (P: 2,                         Q: tau^2 + 1       ))$
 
 P: ratsimp( P );
 Q: ratsimp( Q );

@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 14.12.0 ] */
+/* [ Created with wxMaxima version 15.04.0 ] */
 
 /* [wxMaxima: title   start ]
 Tangent Lines And Conics
@@ -11,26 +11,35 @@ using Lagrange's approach as per Norman Wildberger's rational differential geome
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-(n1: "TRIFOLIUM:"               , p1: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2          )$
-(n2: "LEMNISCATE OF BERNOULLI:" , p2: (x^2 + y^2)^2 - 2*(x^2 - y^2)            )$
-(n3: "LEMNISCATE OF GERONO:"    , p3: x^4 -x^2+y^2                             )$
-(n4: "BESACE:"                  , p4: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2            )$
-(n5: "TRISECTRIX OF CEVA:"      , p5: (x^2 + y^2)^3 - (3*x^2 - y^2)^2          )$
-(n6: "WALKERS TACNODE:"         , p6: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2      )$
-(n7: "RAMPHOID CUSP:"           , p7: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2    )$
-(n8: "TRICUSPOID:"              , p8: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 )$
-(n9: "DOUBLE FOLIUM:"           , p9: (x^2 + y^2)^2 - 4*x*y^2                  )$
-(n10:"QUADRIFOLIUM:"            , p10: (x^2 + y^2)^3 - 4*x^2*y^2               )$
-(n11:"CARDIOID:"                , p11: (x^2 + y^2 - 2*x)^2 - 4*(x^2+y^2)       )$
+BERNOULLI:    false $
+GERONO:       false $
+BESACE:       false $
+TRICEVA:      false $
+TACNODE:      false $
+RAMPHOID:     false $
+TRICUSPOID:   false $
+DBLFOLIUM:    false $
+QUADRIFOLIUM: false $
+CARDIOID:     false $
+TRIFOLIUM:    false $
+CIRCLE:       false $
+
+RAMPHOID: true;
 /* [wxMaxima: input   end   ] */
 
-/* [wxMaxima: comment start ]
-Set polynomial 'p' to one of the above curves p1..p8
-   [wxMaxima: comment end   ] */
-
 /* [wxMaxima: input   start ] */
-p:    p11 $
-name: n11 $
+(if( BERNOULLI    ) then (name: "LEMNISCATE OF BERNOULLI:" , p: (x^2 + y^2)^2 - 2*(x^2 - y^2)            ))$
+(if( GERONO       ) then (name: "LEMNISCATE OF GERONO:"    , p: x^4 -x^2+y^2                             ))$
+(if( BESACE       ) then (name: "BESACE:"                  , p: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2            ))$
+(if( TRICEVA      ) then (name: "TRISECTRIX OF CEVA:"      , p: (x^2 + y^2)^3 - (3*x^2 - y^2)^2          ))$
+(if( TACNODE      ) then (name: "WALKERS TACNODE:"         , p: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2      ))$
+(if( RAMPHOID     ) then (name: "RAMPHOID CUSP:"           , p: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2    ))$
+(if( TRICUSPOID   ) then (name: "TRICUSPOID:"              , p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 ))$
+(if( DBLFOLIUM    ) then (name: "DOUBLE FOLIUM:"           , p: (x^2 + y^2)^2 - 4*x*y^2                  ))$
+(if( QUADRIFOLIUM ) then (name: "QUADRIFOLIUM:"            , p: (x^2 + y^2)^3 - 4*x^2*y^2                ))$
+(if( CARDIOID     ) then (name: "CARDIOID:"                , p: (x^2 + y^2 - 2*x)^2 - 4*(x^2+y^2)        ))$
+(if( TRIFOLIUM    ) then (name: "TRIFOLIUM:"               , p: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2          ))$
+(if( CIRCLE       ) then (name: "CIRCLE:"                  , p: x^2 + y^2 - 1                            ))$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -39,11 +48,14 @@ Expand the terms for the curve at a point [x+r, y+s] relative to [x, y]
 
 /* [wxMaxima: input   start ] */
 prs:p, x=x+r, y=y+s $
+prse: ratexpand( prs )$
 /* [wxMaxima: input   end   ] */
 
-/* [wxMaxima: input   start ] */
-prse: ratexpand( prs )         $
+/* [wxMaxima: comment start ]
+Collect terms of the same order using powers of the dummy variable 't'
+   [wxMaxima: comment end   ] */
 
+/* [wxMaxima: input   start ] */
 prst: ev( prse, x=x*t, y=y*t ) $
 
 deg0: ratcoef( prst, t, 0 )    $
