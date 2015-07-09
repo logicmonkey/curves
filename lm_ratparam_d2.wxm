@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 14.12.0 ] */
+/* [ Created with wxMaxima version 15.04.0 ] */
 
 /* [wxMaxima: title   start ]
 The Rational Parametrization of Plane Curves
@@ -58,7 +58,9 @@ TRICUSPOID:   false $
 WATTLINK:     false $
 WATTCURVE:    false $
 
-CIRCLE:true $
+VANHOEIJ: false $
+
+VANHOEIJ: true $
 
 if( BERNOULLI    )then eq:           (x^2 + y^2)^2 = 4*(x^2 - y^2)   $
 if( GERONO       )then eq:                     x^4 = x^2 - y^2       $
@@ -78,6 +80,8 @@ if( WATTLINK     )then
   eq: a^4*(y^2+x^2)+2*a^2*(y^4-26*y^2-x^4+24*x^2)+(y^2+x^2-24)^2*(y^2+x^2) $
 if( WATTCURVE    )then
   eq: 4*y^2*(b^2*(y^2+x^2)-x^2)=((y^2+x^2)*(y^2+x^2+b^2-a^2)+y^2-x^2)^2 $
+
+if( VANHOEIJ )then eq: y^4+8*x*y^3-17*x^2*y^2-x*y^2+8*x^3*y-2*x^2+5*x^3-2*x^4=0 $
 
 ex: lhs( eq ) - rhs( eq )$
 ex: ratexpand( ex );
@@ -119,17 +123,18 @@ Case by case manual rearrangement of D to determine P and Q:
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-if( BERNOULLI    )then (P: 2*(1+tau^2),           Q: 2*(1 - tau^2)   )$
-if( GERONO       )then (P: 2,                     Q: (1 - tau^2)     )$
-if( BESACE       )then (P: 2,                     Q: (a^2+1 - tau^2) )$
-if( TRICEVA      )then (P: 2*(tau^2-3)*(1+tau^2), Q: 1+tau^2         )$
-if( TACNODE      )then (P: tau,                   Q: (12*tau^2 + 1)  )$
-if( RAMPHOID     )then (P: tau,                   Q: tau*(4- 3*tau)  )$
-if( DBLFOLIUM    )then (P: 4*tau^2,               Q: 1               )$
-if( QUADRIFOLIUM )then (P: 4*tau*(1+tau^2),       Q: 1+tau^2         )$
-if( CARDIOID     )then (P: 4*(1+tau^2),           Q: 1+tau^2         )$
-if( TRIFOLIUM    )then (P: (3*tau^2-1),           Q: 1               )$
-if( CIRCLE       )then (P: 2,                     Q: 1+tau^2         )$
+if( BERNOULLI    )then (P: 2*(1+tau^2),           Q: 2*(1 - tau^2)    )$
+if( GERONO       )then (P: 2,                     Q: (1 - tau^2)      )$
+if( BESACE       )then (P: 2,                     Q: (a^2+1 - tau^2)  )$
+if( TRICEVA      )then (P: 2*(tau^2-3)*(1+tau^2), Q: 1+tau^2          )$
+if( TACNODE      )then (P: tau,                   Q: (12*tau^2 + 1)   )$
+if( RAMPHOID     )then (P: tau,                   Q: tau*(4- 3*tau)   )$
+if( DBLFOLIUM    )then (P: 4*tau^2,               Q: 1                )$
+if( QUADRIFOLIUM )then (P: 4*tau*(1+tau^2),       Q: 1+tau^2          )$
+if( CARDIOID     )then (P: 4*(1+tau^2),           Q: 1+tau^2          )$
+if( TRIFOLIUM    )then (P: (3*tau^2-1),           Q: 1                )$
+if( CIRCLE       )then (P: 2,                     Q: 1+tau^2          )$
+if( VANHOEIJ     )then (P: tau-1,                 Q: (tau+9)*(9*tau+1))$
 
 P: ratsimp( P );
 Q: ratsimp( Q );
@@ -144,11 +149,11 @@ alpha: ratcoef( Q, tau, 0 ) $
 beta:  ratcoef( Q, tau, 1 ) $
 gamma: ratcoef( Q, tau, 2 ) $
 
-(if (alpha = 0) then (
-  tau0 : beta / (t^2 - gamma)
-) else (
-  tau0 : 4*alpha*t/(t^2 - 2*beta*t + beta^2 -4*alpha*gamma)
-));
+if (alpha=0) then 
+  tau0: beta / (t^2 - gamma)
+else 
+  tau0: 4*alpha*t/(t^2 - 2*beta*t + beta^2 -4*alpha*gamma)
+;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -178,6 +183,11 @@ yt: ratsimp( xt*tau0 );
 
 /* [wxMaxima: input   start ] */
 kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+(670761*s^4+1069524*s^2+46656+365472*s+1385748*s^3)/(14954139*s^4+24828552*s^3+15335676*s^2+4170528*s+420544);
+(2882061*s^4+5389848*s^3+3756924*s^2+1157472*s+133056)/(14954139*s^4+24828552*s^3+15335676*s^2+4170528*s+420544);
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
