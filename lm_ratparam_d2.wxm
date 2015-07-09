@@ -46,13 +46,14 @@ BERNOULLI:    false $
 GERONO:       false $
 BESACE:       false $
 TRICEVA:      false $
-TACNODE:      false $
+WALKER:       false $
 RAMPHOID:     false $
 DBLFOLIUM:    false $
 QUADRIFOLIUM: false $
 CARDIOID:     false $
 TRIFOLIUM:    false $
 CIRCLE:       false $
+TACNODE:      false $
 
 TRICUSPOID:   false $
 WATTLINK:     false $
@@ -60,19 +61,20 @@ WATTCURVE:    false $
 
 VANHOEIJ: false $
 
-VANHOEIJ: true $
+TACNODE: true $
 
 if( BERNOULLI    )then eq:           (x^2 + y^2)^2 = 4*(x^2 - y^2)   $
 if( GERONO       )then eq:                     x^4 = x^2 - y^2       $
 if( BESACE       )then eq: (1+a^2)*x^4 + 2*a*x^2*y = x^2 - y^2       $
 if( TRICEVA      )then eq:           (x^2 + y^2)^3 = (3*x^2 - y^2)^2 $
-if( TACNODE      )then eq:   2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2 = 0 $
+if( WALKER       )then eq:   2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2 = 0 $
 if( RAMPHOID     )then eq: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2 = 0 $
 if( DBLFOLIUM    )then eq:           (x^2 + y^2)^2 = 4*x*y^2         $
 if( QUADRIFOLIUM )then eq:           (x^2 + y^2)^3 = (2*x*y)^2       $
 if( CARDIOID     )then eq:         (x^2+y^2-2*x)^2 = 4*(x^2+y^2)     $
 if( TRIFOLIUM    )then eq: (x^2+y^2)*(y^2+x*(x+1)) = 4*x*y^2         $
 if( CIRCLE       )then eq:                 x^2+y^2 = 1               $
+if( TACNODE      )then eq:         (x^2+y^2-3*y)^2 = 4*y^2*(2-y)     $
 
 if( TRICUSPOID   )then eq: (x^2 + y^2 + 12*x + 9)^2 = 4*(2*x + 3)^3  $
 if( WATTLINK     )then 
@@ -127,13 +129,14 @@ if( BERNOULLI    )then (P: 2*(1+tau^2),           Q: 2*(1 - tau^2)    )$
 if( GERONO       )then (P: 2,                     Q: (1 - tau^2)      )$
 if( BESACE       )then (P: 2,                     Q: (a^2+1 - tau^2)  )$
 if( TRICEVA      )then (P: 2*(tau^2-3)*(1+tau^2), Q: 1+tau^2          )$
-if( TACNODE      )then (P: tau,                   Q: (12*tau^2 + 1)   )$
+if( WALKER       )then (P: tau,                   Q: (12*tau^2 + 1)   )$
 if( RAMPHOID     )then (P: tau,                   Q: tau*(4- 3*tau)   )$
 if( DBLFOLIUM    )then (P: 4*tau^2,               Q: 1                )$
 if( QUADRIFOLIUM )then (P: 4*tau*(1+tau^2),       Q: 1+tau^2          )$
 if( CARDIOID     )then (P: 4*(1+tau^2),           Q: 1+tau^2          )$
 if( TRIFOLIUM    )then (P: (3*tau^2-1),           Q: 1                )$
 if( CIRCLE       )then (P: 2,                     Q: 1+tau^2          )$
+if( TACNODE      )then (P: 4*tau,                 Q: 2+tau^2          )$
 if( VANHOEIJ     )then (P: tau-1,                 Q: (tau+9)*(9*tau+1))$
 
 P: ratsimp( P );
@@ -183,11 +186,6 @@ yt: ratsimp( xt*tau0 );
 
 /* [wxMaxima: input   start ] */
 kill(all);
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: input   start ] */
-(670761*s^4+1069524*s^2+46656+365472*s+1385748*s^3)/(14954139*s^4+24828552*s^3+15335676*s^2+4170528*s+420544);
-(2882061*s^4+5389848*s^3+3756924*s^2+1157472*s+133056)/(14954139*s^4+24828552*s^3+15335676*s^2+4170528*s+420544);
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
