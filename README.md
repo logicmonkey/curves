@@ -13,6 +13,16 @@ lm_ratparam_d2.wxm
 
 Catalogue of various GeoGebra tinkerings...
 
+lm_watt_linkage.ggb
+    * locus of a watt linkage wih a=4
+    * with tangent line and tangent conic
+    * no parametrization
+
+lm_watt_curve.ggb
+    * Watt's curve with a and b sliders
+    * with tangent line and tangent conic
+    * no parametrization
+
 lm_cardioid.ggb
     * lm_tangents updated
     * lm_ratparam_d2.wxm created (parametrizations done there)
