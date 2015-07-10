@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 15.04.0 ] */
+/* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: title   start ]
 The Rational Parametrization of Plane Curves
@@ -54,14 +54,14 @@ CARDIOID:     false $
 TRIFOLIUM:    false $
 CIRCLE:       false $
 TACNODE:      false $
+VANHOEIJ:     false $
 
 TRICUSPOID:   false $
 WATTLINK:     false $
 WATTCURVE:    false $
 
-VANHOEIJ: false $
 
-TACNODE: true $
+VANHOEIJ: true $
 
 if( BERNOULLI    )then eq:           (x^2 + y^2)^2 = 4*(x^2 - y^2)   $
 if( GERONO       )then eq:                     x^4 = x^2 - y^2       $
@@ -102,10 +102,6 @@ extau: ex, y=x*tau;
 
 /* [wxMaxima: input   start ] */
 extau: ratsimp( extau / x^(hi_order-2) );
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: input   start ] */
-extau: factor( extau );
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -178,10 +174,9 @@ P: P, tau=tau0;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-xt: (-B + P*R )/( 2*A ), tau=tau0 $
+xt: factor(-B + P*R )/factor( 2*A ), tau=tau0 ;
 
-xt: ratsimp( xt );
-yt: ratsimp( xt*tau0 );
+yt: factor( xt*tau0 );
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */

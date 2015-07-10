@@ -13,6 +13,17 @@ lm_ratparam_d2.wxm
 
 Catalogue of various GeoGebra tinkerings...
 
+lm_vanhoeij.ggb
+    * tacnode from Mark van Hoeij's paper.
+    * got it to work but some hacking to the parametrization required
+    * INVESTIGATE
+
+lm_tacnode.ggb
+  Wikipedia Tacnode
+    * tangent line T1
+    * tangent conic T2 (my work using Lagrange's approach as described by Wildberger)
+    * my parametrization using algorithmic approach
+
 lm_watt_linkage.ggb
     * locus of a watt linkage wih a=4
     * with tangent line and tangent conic
@@ -67,7 +78,7 @@ lm_besace.ggb
     * tangent conic T2 (my work using Lagrange's approach as described by Wildberger)
     * my parametrization using algorithmic approach
 
-lm_tacnode.ggb
+lm_walker.ggb
   Walker's Tacnode
     * tangent line T1
     * tangent conic T2 (my work using Lagrange's approach as described by Wildberger)
