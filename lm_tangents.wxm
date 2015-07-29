@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 15.04.0 ] */
+/* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: title   start ]
 Tangent Lines And Conics
@@ -23,12 +23,13 @@ CARDIOID:     false $
 TRIFOLIUM:    false $
 CIRCLE:       false $
 TACNODE:      false $
+PIRIFORM:     false $
 
 TRICUSPOID:   false $
 WATTLINK:     false $
 WATTCURVE:    false $
 
-TACNODE:      true  $
+PIRIFORM:     true  $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -44,6 +45,7 @@ if( CARDIOID     )then (name: "CARDIOID:"               , p: (x^2 + y^2 - 2*x)^2
 if( TRIFOLIUM    )then (name: "TRIFOLIUM:"              , p: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2          )$
 if( CIRCLE       )then (name: "CIRCLE:"                 , p: x^2 + y^2 - 1                            )$
 if( TACNODE      )then (name: "TACNODE:"                , p: (x^2 + y^2 -3*y)^2 - 4*y^2*(2-y)         )$
+if( PIRIFORM     )then (name: "PIRIFORM:"               , p: x^4 - x^3 + y^2                          )$
 
 if( TRICUSPOID   )then (name: "TRICUSPOID:"             , p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 )$
 if( WATTLINK     )then (name: "WATT LINKAGE:",

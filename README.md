@@ -13,6 +13,11 @@ lm_ratparam_d2.wxm
 
 Catalogue of various GeoGebra tinkerings...
 
+lm_piriform.ggb
+  Teardrop  a^4y^2=b^2x^3(2a-x)=0 | a=b=1
+    * lm_tangents updated
+    * lm_ratparam_d2 updated
+
 lm_vanhoeij.ggb
     * tacnode from Mark van Hoeij's paper.
     * got it to work but some hacking to the parametrization required
