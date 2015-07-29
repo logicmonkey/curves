@@ -13,6 +13,12 @@ lm_ratparam_d2.wxm
 
 Catalogue of various GeoGebra tinkerings...
 
+lm scarabaeus.ggb
+  Scarabaeus (x^2 + y^2) (x^2 + y^2 + a*x)^2 - b^2*(x^2 - y^2)^2 = 0
+    * a=b=1
+    * lm_tangents updated
+    * lm_ratparam_d2 updated
+
 lm_piriform.ggb
   Teardrop  a^4y^2=b^2x^3(2a-x)=0 | a=b=1
     * lm_tangents updated
