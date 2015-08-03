@@ -1,0 +1,43 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.0 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+load(vect)$
+
+magnitude(a) := sqrt(a.a)$
+unit(a) := a/magnitude(a)$
+
+/* FUNCTION */
+
+f:[4*sin(2*u)*(sin(3*u)/3+1),
+   4*cos(2*u)*(sin(3*u)/3+1),
+   2*cos(3*u)]$
+
+tangent: diff(f, u)$
+
+/* choose normal to have no Z component, x <-> y, negate */
+
+normal: [tangent[2], -tangent[1], 0]$
+
+/* cross product of tangent and normal */
+
+binormal: express(tangent~normal)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+r:1$
+ff: f + r*cos(v)*unit(normal) + r*sin(v)*unit(binormal)$
+x: ff[1];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+y: ff[2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+z: ff[3];
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
