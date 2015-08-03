@@ -5,6 +5,10 @@
 kill(all)$
 load(vect)$
 
+/*
+ * http://mathoverflow.net/questions/91444/what-is-parameterization-of-the-trefoil-knot-surface-in-r%C2%B3/91459#91459
+ */
+
 magnitude(a) := sqrt(a.a)$
 unit(a) := a/magnitude(a)$
 
