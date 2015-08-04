@@ -18,7 +18,7 @@
                "(((-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))*(8*cos(2*u)*(sin(3*u)/3+1)+4*sin(2*u)*cos(3*u))-\n(4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2)*sin(v))/(sqrt(36*(4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2*sin(3*u)^2+36*\n(-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))^2*sin(3*u)^2+((-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))*\n(8*cos(2*u)*(sin(3*u)/3+1)+4*sin(2*u)*cos(3*u))-(4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2)^(2)))+2*cos(3*u)"
            ],
            "Name": [
-               "Trefoil"
+               "Trefoil Knot"
            ],
            "Umax": [
                "2*pi"
