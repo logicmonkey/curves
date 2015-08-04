@@ -15,7 +15,7 @@
 "(-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))*cos(v)/sqrt((4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2+(-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))^2)+4*cos(2*u)*(sin(3*u)/3+1)"
            ],
            "Fz": [
-"((-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))*(8*cos(2*u)*(sin(3*u)/3+1)+4*sin(2*u)*cos(3*u))-(4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2)*sin(v)/abs((-8*cos(2*u)*(sin(3*u)/3+1)-4*sin(2*u)*cos(3*u))*(8*cos(2*u)*(sin(3*u)/3+1)+4*sin(2*u)*cos(3*u))-(4*cos(2*u)*cos(3*u)-8*sin(2*u)*(sin(3*u)/3+1))^2)+2*cos(3*u)"
+"sin(v)+2*cos(3*u)"
            ],
            "Name": [
                "Trefoil Knot (lazy)"

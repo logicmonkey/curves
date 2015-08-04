@@ -20,20 +20,18 @@ f:[4*sin(2*u)*(sin(3*u)/3+1),
 
 tangent: diff(f, u)$
 
-projxy: [tangent[1], tangent[2], 0]$
-
 /* choose normal to have no Z component, x <-> y, negate */
 
-normal: [tangent[2], -tangent[1], 0]$
+perp: [tangent[2], -tangent[1], 0]$
 
-/* cross product of projected tangent and normal */
+/* lazybinormal can then just be a unit vector in Z */
 
-binormal: express(projxy~normal)$
+lazybinormal: [0, 0, 1]$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
 r:1$
-ff: f + r*cos(v)*unit(normal) + r*sin(v)*unit(binormal)$
+ff: f + r*cos(v)*unit(perp) + r*sin(v)*lazybinormal$
 display2d: false $
 x: ff[1];
 /* [wxMaxima: input   end   ] */
@@ -43,15 +41,7 @@ y: ff[2];
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-¦kk
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: input   start ] */
 z: ff[3];
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: input   start ] */
-¦
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
