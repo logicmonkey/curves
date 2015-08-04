@@ -42,6 +42,8 @@ Usage:
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
+kill(all)$
+
 BERNOULLI:    false $
 GERONO:       false $
 BESACE:       false $
@@ -60,8 +62,9 @@ WATTCURVE:    false $
 VANHOEIJ:     false $
 PIRIFORM:     false $
 SCARABAEUS:   false $
+CAPRICORNOID: false $
 
-SCARABAEUS:   true $
+CAPRICORNOID: true $
 
 if( BERNOULLI    )then eq:           (x^2 + y^2)^2 = 4*(x^2 - y^2)   $
 if( GERONO       )then eq:                     x^4 = x^2 - y^2       $
@@ -87,6 +90,7 @@ if( VANHOEIJ   )then eq: y^4+8*x*y^3-17*x^2*y^2-x*y^2+8*x^3*y-2*x^2+5*x^3-2*x^4=
 
 if( PIRIFORM   )then eq: x^4 - x^3 + y^2 = 0 $
 if( SCARABAEUS )then eq: (x^2+y^2)*(x^2+y^2+a*x)^2 -b^2*(x^2-y^2)^2 = 0 $
+if( CAPRICORNOID )then eq: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2 = 0 $
 
 ex: lhs( eq ) - rhs( eq )$
 ex: ratexpand( ex );
@@ -138,7 +142,9 @@ if( CIRCLE       )then (P: 2,                     Q: 1+tau^2          )$
 if( TACNODE      )then (P: 4*tau,                 Q: 2+tau^2          )$
 if( VANHOEIJ     )then (P: tau-1,                 Q: (tau+9)*(9*tau+1))$
 if( PIRIFORM     )then (P: 1,                     Q: 1-4*tau^2        )$
-if( SCARABAEUS   )then (P: 2*b*(tau+1)*(tau-1)*(tau^2+1), Q:(tau^2+1))$
+if( SCARABAEUS   )then (P: 2*b*(tau+1)*(tau-1)*(tau^2+1), Q:(tau^2+1) )$
+if( CAPRICORNOID )then (P: 2*a*tau,               Q:a*b*(tau^2+1)     )$
+
 P: ratsimp( P );
 Q: ratsimp( Q );
 /* [wxMaxima: input   end   ] */
@@ -178,13 +184,10 @@ P: P, tau=tau0;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
+display2d: true$
 xt: factor(-B + P*R )/factor( 2*A ), tau=tau0 ;
 
 yt: factor( xt*tau0 );
-/* [wxMaxima: input   end   ] */
-
-/* [wxMaxima: input   start ] */
-kill(all);
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */

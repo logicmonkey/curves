@@ -11,6 +11,7 @@ using Lagrange's approach as per Norman Wildberger's rational differential geome
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
+kill(all)$
 BERNOULLI:    false $
 GERONO:       false $
 BESACE:       false $
@@ -25,12 +26,13 @@ CIRCLE:       false $
 TACNODE:      false $
 PIRIFORM:     false $
 SCARABAEUS:   false $
+CAPRICORNOID: false $
 
 TRICUSPOID:   false $
 WATTLINK:     false $
 WATTCURVE:    false $
 
-SCARABAEUS:   true  $
+CAPRICORNOID: true  $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -48,6 +50,7 @@ if( CIRCLE       )then (name: "CIRCLE:"                 , p: x^2 + y^2 - 1      
 if( TACNODE      )then (name: "TACNODE:"                , p: (x^2 + y^2 -3*y)^2 - 4*y^2*(2-y)         )$
 if( PIRIFORM     )then (name: "PIRIFORM:"               , p: x^4 - x^3 + y^2                          )$
 if( SCARABAEUS   )then (name: "SCARABAEUS:"             , p: (x^2+y^2)*(x^2+y^2+a*x)^2 - b^2*(x^2-y^2)^2    )$
+if( CAPRICORNOID )then (name: "CAPRICORNOID"            , p: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2        )$
 
 if( TRICUSPOID   )then (name: "TRICUSPOID:"             , p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 )$
 if( WATTLINK     )then (name: "WATT LINKAGE:",
