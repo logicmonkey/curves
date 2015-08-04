@@ -27,39 +27,17 @@ TACNODE:      false $
 PIRIFORM:     false $
 SCARABAEUS:   false $
 CAPRICORNOID: false $
+LINKS:        false $
 
 TRICUSPOID:   false $
 WATTLINK:     false $
 WATTCURVE:    false $
 
-CAPRICORNOID: true  $
+LINKS: true  $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-if( BERNOULLI    )then (name: "LEMNISCATE OF BERNOULLI:", p: (x^2 + y^2)^2 - 2*(x^2 - y^2)            )$
-if( GERONO       )then (name: "LEMNISCATE OF GERONO:"   , p: x^4 -x^2+y^2                             )$
-if( BESACE       )then (name: "BESACE:"                 , p: (1+a^2)*x^4+2*a*x^2*y-x^2+y^2            )$
-if( TRICEVA      )then (name: "TRISECTRIX OF CEVA:"     , p: (x^2 + y^2)^3 - (3*x^2 - y^2)^2          )$
-if( WALKER       )then (name: "WALKERS TACNODE:"        , p: 2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2      )$
-if( RAMPHOID     )then (name: "RAMPHOID CUSP:"          , p: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2    )$
-if( DBLFOLIUM    )then (name: "DOUBLE FOLIUM:"          , p: (x^2 + y^2)^2 - 4*x*y^2                  )$
-if( QUADRIFOLIUM )then (name: "QUADRIFOLIUM:"           , p: (x^2 + y^2)^3 - 4*x^2*y^2                )$
-if( CARDIOID     )then (name: "CARDIOID:"               , p: (x^2 + y^2 - 2*x)^2 - 4*(x^2+y^2)        )$
-if( TRIFOLIUM    )then (name: "TRIFOLIUM:"              , p: (y^2+x^2)*(y^2+x*(x+1))-4*x*y^2          )$
-if( CIRCLE       )then (name: "CIRCLE:"                 , p: x^2 + y^2 - 1                            )$
-if( TACNODE      )then (name: "TACNODE:"                , p: (x^2 + y^2 -3*y)^2 - 4*y^2*(2-y)         )$
-if( PIRIFORM     )then (name: "PIRIFORM:"               , p: x^4 - x^3 + y^2                          )$
-if( SCARABAEUS   )then (name: "SCARABAEUS:"             , p: (x^2+y^2)*(x^2+y^2+a*x)^2 - b^2*(x^2-y^2)^2    )$
-if( CAPRICORNOID )then (name: "CAPRICORNOID"            , p: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2        )$
-
-if( TRICUSPOID   )then (name: "TRICUSPOID:"             , p: (x^2 + y^2 + 12*x + 9)^2 - 4*(2*x + 3)^3 )$
-if( WATTLINK     )then (name: "WATT LINKAGE:",
-  /* comes from book "How Round Is Your Circle" */
-  p: a^4*(y^2+x^2)+2*a^2*(y^4-26*y^2-x^4+24*x^2)+(y^2+x^2-24)^2*(y^2+x^2)
-)$
-if( WATTCURVE    )then (name: "WATT CURVE:",
-  p: 4*y^2*(b^2*(y^2+x^2)-x^2)-((y^2+x^2)*(y^2+x^2+b^2-a^2)+y^2-x^2)^2
-)$
+(x^2+y^2 -3*x)^2-4*x^2*(2-x)
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
