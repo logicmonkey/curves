@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 14.12.0 ] */
+/* [ Created with wxMaxima version 15.04.0 ] */
 
 /* [wxMaxima: title   start ]
 The Rational Parametrization of Plane Curves
@@ -65,7 +65,7 @@ SCARABAEUS:   false $
 CAPRICORNOID: false $
 LINKS:        false $
 
-LINKS: true $
+SCARABAEUS : true $
 
 if( BERNOULLI    )then eq:           (x^2 + y^2)^2 = 4*(x^2 - y^2)   $
 if( GERONO       )then eq:                     x^4 = x^2 - y^2       $
@@ -188,9 +188,46 @@ P: P, tau=tau0;
 
 /* [wxMaxima: input   start ] */
 display2d: true$
-xt: factor(-B + P*R )/factor( 2*A ), tau=tau0 ;
+xt: factor(-B + P*R )/factor( 2*A ), tau=tau0 $
+yt: factor( xt*tau0 )$
 
-yt: factor( xt*tau0 );
+rat_plane_curve: [xt, yt];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Surfaces of Revolution
+
+Rotation of the parametrization (0 < v < 2pi):
+  [f1, f2] around the y axis: Sy : [f1(u).cos v, f2(u),         f1(u).sin v]
+  [f1, f2] around the x axis: Sy : [f1(u),         f2(u).cos v, f2(u).sin v]
+
+Having gone to the effort of generating a rational plane curve parametrization, I prefer the rational surface of rotation.
+Cos and sin are replaced with the rational parametrization for a circle [(1-v^2)/(1+v^2), 2v/(1+v^2)]
+
+Rational rotation of the parametrization (-inf < v < +inf):
+  [f1, f2] around the y axis: Sy : [f1(u).(1-v^2)/(1+v^2), f2(u),                      f1(u).2v/(1+v^2)]
+  [f1, f2] around the x axis: Sy : [f1(u),                      f2(u).(1-v^2)/(1+v^2), f2(u).2v/(1+v^2)]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+rat_surface_of_rotation_y: [xt * (1-v^2)/(1+v^2), yt, xt * 2*v/(1+v^2)], t=u;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rat_surface_of_rotation_x: [xt, yt* (1-v^2)/(1+v^2), yt * 2*v/(1+v^2)], t=u;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+And the transcendental rotationsfor completeness...
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+tran_surface_of_rotation_y:[xt*cos(v), yt, xt*sin(v)], t=u;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+tran_surface_of_rotation_x:[xt, yt*cos(v), yt*sin(v)], t=u;
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
