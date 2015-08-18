@@ -1,0 +1,31 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.12.0 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Lissajous Quadratic (http://www.2dcurves.com/higher/higherliq.html)
+
+x(u)=cos u + a*sin^2 u
+y(u)=sin u + c*sin^2 u
+
+Apply Weierstrass/tangent half angle substitution t=tan(u/2) for
+rational cos and sin, then eliminate t.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+xt : x= (1 - t^2) / (1 + t^2) + a*(2*t / (1 + t^2))^2$
+yt : y=       2*t / (1 + t^2) + c*(2*t / (1 + t^2))^2$
+imp: eliminate([xt,yt],[t])/256$
+display2d: false$
+imp: imp[1];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+imp, a=1, c=1;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
