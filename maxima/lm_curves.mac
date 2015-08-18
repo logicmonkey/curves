@@ -1,0 +1,31 @@
+defstruct (curve (text, eqn))$
+
+/*  Curves of relative degree 1: simple rational parametrizations  */
+folium      : new(curve)$       folium@text: "Simple Folium"          $       folium@eqn: (x^2+y^2)*(y^2+x*(x+4))=4*x*y^2                                        $ group1[FOLIUM      ]: folium      $
+dblfolium   : new(curve)$    dblfolium@text: "Double Folium"          $    dblfolium@eqn: (x^2+y^2)*(y^2+x*(x+0))=4*x*y^2                                        $ group1[DBLFOLIUM   ]: dblfolium   $
+trifolium   : new(curve)$    trifolium@text: "Trifolium"              $    trifolium@eqn: (x^2+y^2)*(y^2+x*(x+1))=4*x*y^2                                        $ group1[TRIFOLIUM   ]: trifolium   $
+eidswick    : new(curve)$     eidswick@text: "Trisectrix of Eidswick" $     eidswick@eqn: x^3-3*x*y^2-3*x^2+y^2=0                                                $ group1[EIDSWICK    ]: eidswick    $
+maclaurin   : new(curve)$    maclaurin@text: "Trisectrix of Maclaurin"$    maclaurin@eqn: x^3+x*y^2+y^2-3*x^2=0                                                  $ group1[MACLAURIN   ]: maclaurin   $
+siluroid    : new(curve)$     siluroid@text: "Siluroid"               $     siluroid@eqn: (x^2+y^2)^2 = 4*x*(x^2 -y^2)                                           $ group1[SILUROID    ]: siluroid    $
+
+/*  Curves of relative degree 2: harder rational parametrizations  */
+bernoulli   : new(curve)$    bernoulli@text: "Lemniscate of Bernoulli"$    bernoulli@eqn:           (x^2 + y^2)^2 = 4*(x^2 - y^2)                                $ group2[BERNOULLI   ]: bernoulli   $
+gerono      : new(curve)$       gerono@text: "Lemniscate of Gerono"   $       gerono@eqn:                     x^4 = x^2 - y^2                                    $ group2[GERONO      ]: gerono      $
+besace      : new(curve)$       besace@text: "Cramer's Besace"        $       besace@eqn: (1+a^2)*x^4 + 2*a*x^2*y = x^2 - y^2                                    $ group2[BESACE      ]: besace      $
+triceva     : new(curve)$      triceva@text: "Trisectrix of Ceva"     $      triceva@eqn:           (x^2 + y^2)^3 = (3*x^2 - y^2)^2                              $ group2[TRICEVA     ]: triceva     $
+walker      : new(curve)$       walker@text: "Walker's Tacnode"       $       walker@eqn:   2*x^4 - 3*x^2*y + y^4 - 2*y^3 + y^2 = 0                              $ group2[WALKER      ]: walker      $
+ramphoid    : new(curve)$     ramphoid@text: "Ramphoid Cusp"          $     ramphoid@eqn: x^4 + x^2*y^2 - 2*x^2*y - x*y^2 + y^2 = 0                              $ group2[RAMPHOID    ]: ramphoid    $
+quadrifolium: new(curve)$ quadrifolium@text: "Quadrifolium"           $ quadrifolium@eqn:           (x^2 + y^2)^3 = (2*x*y)^2                                    $ group2[QUADRIFOLIUM]: quadrifolium$
+cardioid    : new(curve)$     cardioid@text: "Cardioid"               $     cardioid@eqn:         (x^2+y^2-2*x)^2 = 4*(x^2+y^2)                                  $ group2[CARDIOID    ]: cardioid    $
+circle      : new(curve)$       circle@text: "Circle"                 $       circle@eqn:                 x^2+y^2 = 1                                            $ group2[CIRCLE      ]: circle      $
+tacnode     : new(curve)$      tacnode@text: "Tacnode"                $      tacnode@eqn:         (x^2+y^2-3*y)^2 = 4*y^2*(2-y)                                  $ group2[TACNODE     ]: tacnode     $
+vanhoeij    : new(curve)$     vanhoeij@text: "Trisectrix of van Hoeij"$     vanhoeij@eqn: y^4+8*x*y^3-17*x^2*y^2-x*y^2+8*x^3*y-2*x^2+5*x^3-2*x^4=0               $ group2[VANHOEIJ    ]: vanhoeij    $
+piriform    : new(curve)$     piriform@text: "Piriform"               $     piriform@eqn: x^4 - x^3 + y^2 = 0                                                    $ group2[PIRIFORM    ]: piriform    $
+scarabaeus  : new(curve)$   scarabaeus@text: "Scarabaeus"             $   scarabaeus@eqn: (x^2+y^2)*(x^2+y^2+a*x)^2 -b^2*(x^2-y^2)^2 = 0                         $ group2[SCARABAEUS  ]: scarabaeus  $
+capricornoid: new(curve)$ capricornoid@text: "Capricornoid"           $ capricornoid@eqn: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2 = 0                                  $ group2[CAPRICORNOID]: capricornoid$
+links       : new(curve)$        links@text: "Links Curve"            $        links@eqn: (x^2+y^2 -3*x)^2-4*x^2*(2-x) = 0                                       $ group2[LINKS       ]: links       $
+
+/*  Curves that I haven't been able to parametrize using the methods that Boyles describes  */
+wattlink    : new(curve)$     wattlink@text: "Watt's Linkage"         $     wattlink@eqn: a^4*(y^2+x^2)+2*a^2*(y^4-26*y^2-x^4+24*x^2)+(y^2+x^2-24)^2*(y^2+x^2)=0 $ group3[WATTLINK    ]: wattlink    $
+wattcurve   : new(curve)$    wattcurve@text: "Watt's Curve"           $    wattcurve@eqn: 4*y^2*(b^2*(y^2+x^2)-x^2)=((y^2+x^2)*(y^2+x^2+b^2-a^2)+y^2-x^2)^2      $ group3[WATTCURVE   ]: wattcurve   $
+tricuspoid  : new(curve)$   tricuspoid@text: "Tricuspoid"             $   tricuspoid@eqn: (x^2 + y^2 + 12*x + 9)^2 = 4*(2*x + 3)^3                               $ group3[TRICUSPOID  ]: tricuspoid  $
