@@ -7,22 +7,25 @@ with Relative Degree One
    [wxMaxima: title   end   ] */
 
 /* [wxMaxima: input   start ] */
-(n0: "FOLIUM",                  f0: (x^2+y^2)*(y^2+x*(x+4))-4*x*y^2 )$
-(n1: "DOUBLE FOLIUM",           f1: (x^2+y^2)*(y^2+x*(x+0))-4*x*y^2 )$
-(n2: "TRIFOLIUM",               f2: (x^2+y^2)*(y^2+x*(x+1))-4*x*y^2 )$
-(n3: "TRISECTRIX OF EIDSWICK",  f3: x^3-3*x*y^2-3*x^2+y^2           )$
-(n4: "TRISECTRIX OF MACLAURIN", f4: x^3+x*y^2+y^2-3*x^2             )$
-(n5: "SILUROID",                f5: (x^2+y^2)^2 - 4*x*(x^2 -y^2)    )$
+kill(all)$
+load("lm_curves.mac");
+arrayinfo(group1);
 
-(name: n5, f: f5) $
+mycurve: SILUROID $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-g: ev(ratexpand(f), x=t*x, y=t*y)    $
-dmax: hipow(g, t)         $
-dmin: lopow(g, t)         $
-fnum: ratcoef(g, t, dmin) $
-fden: ratcoef(g, t, dmax) $
+eq: group1[mycurve]@eqn $
+ex: lhs( eq ) - rhs( eq )$
+ex: ratexpand( ex );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ext: ev(ex, x=x*t, y=y*t) $
+hi_order: hipow( ext, t ) $
+rel_order: hi_order - lopow( ext, t )$
+fnum: ratcoef(ext, t, hi_order-rel_order) $
+fden: ratcoef(ext, t, hi_order) $
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -38,9 +41,9 @@ yt: t*xt;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-print("GeoGebra:") $
 display2d: false   $
-print(name, ": curve(", xt, ",", yt, ", t, -60, 60)") $
+print(group1[mycurve]@text)$
+print("curve[", xt, ",", yt, ", t, -60, 60]") $
 display2d: true    $
 /* [wxMaxima: input   end   ] */
 
