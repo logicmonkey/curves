@@ -16,10 +16,11 @@ load("lm_curves.mac");
 arrayinfo(group1);
 arrayinfo(group2);
 arrayinfo(group3);
+arrayinfo(group4);
 
-mycurve: SILUROID $
-name: group1[mycurve]@text$
-eq: group1[mycurve]@eqn;
+mycurve: LISSAJOUS $
+name: group4[mycurve]@text$
+eq: group4[mycurve]@eqn;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */

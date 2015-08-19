@@ -22,10 +22,16 @@ tacnode     : new(curve)$      tacnode@text: "Tacnode"                $      tac
 vanhoeij    : new(curve)$     vanhoeij@text: "Trisectrix of van Hoeij"$     vanhoeij@eqn: y^4+8*x*y^3-17*x^2*y^2-x*y^2+8*x^3*y-2*x^2+5*x^3-2*x^4=0               $ group2[VANHOEIJ    ]: vanhoeij    $
 piriform    : new(curve)$     piriform@text: "Piriform"               $     piriform@eqn: x^4 - x^3 + y^2 = 0                                                    $ group2[PIRIFORM    ]: piriform    $
 scarabaeus  : new(curve)$   scarabaeus@text: "Scarabaeus"             $   scarabaeus@eqn: (x^2+y^2)*(x^2+y^2+a*x)^2 -b^2*(x^2-y^2)^2 = 0                         $ group2[SCARABAEUS  ]: scarabaeus  $
-capricornoid: new(curve)$ capricornoid@text: "Capricornoid"           $ capricornoid@eqn: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2 = 0                                  $ group2[CAPRICORNOID]: capricornoid$
-links       : new(curve)$        links@text: "Links Curve"            $        links@eqn: (x^2+y^2 -3*x)^2-4*x^2*(2-x) = 0                                       $ group2[LINKS       ]: links       $
+capricornoid: new(curve)$ capricornoid@text: "Capricornoid (tacnode)" $ capricornoid@eqn: a*x^2*(x^2+y^2)-b*(a*y-x^2-y^2)^2 = 0                                  $ group2[CAPRICORNOID]: capricornoid$
+links       : new(curve)$        links@text: "Links Curve (tacnode)"  $        links@eqn: (x^2+y^2 -3*x)^2-4*x^2*(2-x) = 0                                       $ group2[LINKS       ]: links       $
 
 /*  Curves that I haven't been able to parametrize using the methods that Boyles describes  */
 wattlink    : new(curve)$     wattlink@text: "Watt's Linkage"         $     wattlink@eqn: a^4*(y^2+x^2)+2*a^2*(y^4-26*y^2-x^4+24*x^2)+(y^2+x^2-24)^2*(y^2+x^2)=0 $ group3[WATTLINK    ]: wattlink    $
 wattcurve   : new(curve)$    wattcurve@text: "Watt's Curve"           $    wattcurve@eqn: 4*y^2*(b^2*(y^2+x^2)-x^2)=((y^2+x^2)*(y^2+x^2+b^2-a^2)+y^2-x^2)^2      $ group3[WATTCURVE   ]: wattcurve   $
 tricuspoid  : new(curve)$   tricuspoid@text: "Tricuspoid"             $   tricuspoid@eqn: (x^2 + y^2 + 12*x + 9)^2 = 4*(2*x + 3)^3                               $ group3[TRICUSPOID  ]: tricuspoid  $
+/*  Curves that parametrise some other way  */
+lissajous   : new(curve)$    lissajous@text: "Lissajous Quadratic"    $ lissajous@eqn: y^4+2*y^3+x*(-4*y^3-6*y^2+4*y+2)+x^2*(6*y^2+6*y)-6*y+x^3*(-4*y-2)+x^4-1=0 $ group4[LISSAJOUS   ]: lissajous   $
+lissajous_ac: new(curve)$ lissajous_ac@text: "Lissajous Quadratic a,c"$ lissajous_ac@eqn: a^4*y^4+x*(a^3*(-4*c*y^3-2*y^2)+a*(-4*c^2*y^2+4*c^3*y+2*c^2))
+                                                                                         +a^2*(2*c*y^3+(1-2*c^2)*y^2-4*c*y-1)
+                                                                                         +x^2*(a^2*(6*c^2*y^2+4*c*y+1)+2*c^3*y-2*c^4+c^2)+c^2*y^2
+                                                                                         +a*x^3*(-4*c^3*y-2*c^2)-2*c^3*y+c^4*x^4+c^4-c^2                         $ group4[LISSAJOUS_AC]: lissajous_ac$
