@@ -57,6 +57,9 @@ vtkSmartPointer<vtkParametricFunctionSource> pfnSrc = vtkSmartPointer<vtkParamet
   pfnSrc->SetParametricFunction(trefoilknot);
   pfnSrc->SetScalarModeToModulus();
 
+  pfnSrc->SetUResolution(200);
+  pfnSrc->SetVResolution(200);
+
 vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
 #if VTK_MAJOR_VERSION <= 5
   mapper->SetInput((vtkPolyData *) pfnSrc->GetOutput());
