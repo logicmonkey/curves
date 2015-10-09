@@ -2,6 +2,10 @@
 /* [ Created with wxMaxima version 14.12.0 ] */
 
 /* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
 kill(all)$
 load(vect)$
 
@@ -64,16 +68,12 @@ print(Dv[2]=subst(pow,"^",diff(z,v)))$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-print(Pt[0]=subst(pow,"^",x)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
-print(Pt[1]=subst(pow,"^",y)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
-print(Pt[2]=subst(pow,"^",z)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
-/* print(Du[0]=subst(pow,"^",diff(x,u)))$
-print(Du[1]=subst(pow,"^",diff(y,u)))$
-print(Du[2]=subst(pow,"^",diff(z,u)))$
-print(Dv[0]=subst(pow,"^",diff(x,v)))$
-print(Dv[1]=subst(pow,"^",diff(y,v)))$
-print(Dv[2]=subst(pow,"^",diff(z,v)))$
-*/;
+px:subst(pow,"^",x), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+py:subst(pow,"^",y), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+pz:subst(pow,"^",z), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+print(px)$
+print(py)$
+print(pz)$
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
