@@ -23,7 +23,7 @@ tangent: diff(f, u)$
 /* choose normal to have no Z component, x <-> y, negate */
 
 normal: [tangent[2], -tangent[1], 0]$
-q
+
 /* cross product of tangent and normal */
 
 binormal: express(tangent~normal)$
@@ -61,6 +61,19 @@ print(Du[2]=subst(pow,"^",diff(z,u)))$
 print(Dv[0]=subst(pow,"^",diff(x,v)))$
 print(Dv[1]=subst(pow,"^",diff(y,v)))$
 print(Dv[2]=subst(pow,"^",diff(z,v)))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+print(Pt[0]=subst(pow,"^",x)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+print(Pt[1]=subst(pow,"^",y)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+print(Pt[2]=subst(pow,"^",z)), r=0.1, p=1, q=-2, m=1, n=1.5, w=0.3$
+/* print(Du[0]=subst(pow,"^",diff(x,u)))$
+print(Du[1]=subst(pow,"^",diff(y,u)))$
+print(Du[2]=subst(pow,"^",diff(z,u)))$
+print(Dv[0]=subst(pow,"^",diff(x,v)))$
+print(Dv[1]=subst(pow,"^",diff(y,v)))$
+print(Dv[2]=subst(pow,"^",diff(z,v)))$
+*/;
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
