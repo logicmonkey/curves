@@ -1,0 +1,859 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+\usepackage{babel}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+RATIONAL PARAMETRIZATION OF LEMNISCATES
+\end_layout
+
+\begin_layout Author
+logicmonkey
+\end_layout
+
+\begin_layout Section
+Lemniscate of Bernoulli
+\end_layout
+
+\begin_layout Standard
+The implicit equation for the Lemniscate of Bernoulli is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(x^{2}+y^{2}\right)^{2}-2\left(x^{2}-y^{2}\right)=0\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/pb/Documents/lm_bernoulli.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parametrize with a substitution using a pencil of circles through (0,0):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x^{2}+y^{2}=t\left(x-y\right)\label{eq:2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+ and expanding the difference of two squares: 
+\begin_inset Formula 
+\[
+t^{2}\left(x-y\right)^{2}-2\left(x-y\right)\left(x+y\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(x-y\right)\left(t^{2}\left(x-y\right)-2\left(x+y\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving for the second term as it contains 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t^{2}x-2x-t^{2}y-2y=x\left(t^{2}-2\right)-y\left(t^{2}+2\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=x\frac{t^{2}-2}{t^{2}+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substitute 
+\begin_inset Formula $y=x\frac{t^{2}-2}{t^{2}+2}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{2}+x^{2}\frac{\left(t^{2}-2\right){}^{2}}{\left(t^{2}+2\right){}^{2}}-xt+x\frac{t\left(t^{2}-2\right)}{t^{2}+2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\left(x+x\frac{\left(t^{2}-2\right){}^{2}}{\left(t^{2}+2\right){}^{2}}-t+\frac{t\left(t^{2}-2\right)}{t^{2}+2}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which has solutions 
+\begin_inset Formula $x=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\left(1+\frac{\left(t^{2}-2\right){}^{2}}{\left(t^{2}+2\right){}^{2}}\right)=t-\frac{t\left(t^{2}-2\right)}{t^{2}+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\left(\frac{\left(t^{2}+2\right){}^{2}+\left(t^{2}-2\right){}^{2}}{\left(t^{2}+2\right){}^{2}}\right)=\frac{t\left(t^{2}+2\right)-t\left(t^{2}-2\right)}{t^{2}+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=\frac{\left(t^{2}+2\right){}^{2}}{t^{4}+4t^{2}+4+t^{4}-4t^{2}+4}\bullet\frac{t^{3}+2t-t^{3}+2t}{t^{2}+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=\frac{4t\left(t^{2}+2\right)}{2t^{4}+8}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\frac{2t\left(t^{2}+4\right)}{t^{4}+4}\bullet\frac{t^{2}-2}{t^{2}+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+A rational parametrization of the Lemniscate of Bernoulli is:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+x\left(t\right)=\frac{2t\left(t^{2}+2\right)}{t^{4}+4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+y\left(t\right)=\frac{2t\left(t^{2}-2\right)}{t^{4}+4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemniscate of Gerono
+\end_layout
+
+\begin_layout Standard
+The lemniscate of Gerono is given by the implict equation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x^{4}-a^{2}\left(x^{2}-y^{2}\right)=0\label{eq:4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parametrize with a substitution using a pencil of parabolas through (0,0):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x^{2}=t\left(x-y\right)\label{eq:5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/pb/Documents/lm_gerono.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:5"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4"
+
+\end_inset
+
+ and expanding the difference of two squares:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t^{2}\left(x-y\right)^{2}-a^{2}\left(x-y\right)\left(x+y\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(x-y\right)\left(t^{2}\left(x-y\right)-a^{2}\left(x-y\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving for the second term as it contains 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\left(t^{2}-a^{2}\right)-y(t^{2}+a^{2})=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we can substitute 
+\begin_inset Formula $y=x\frac{t^{2}-a^{2}}{t^{2}+a^{2}}$
+\end_inset
+
+in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:5"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{2}-t\left(x-x\frac{t^{2}-a^{2}}{t^{2}+a^{2}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{2}-x\left(\frac{t\left(t^{2}+a^{2}\right)-t\left(t^{2}-a^{2}\right)}{t^{2}+a}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\left(x-\frac{2a^{2}t}{t^{2}+a^{2}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which has solutions 
+\begin_inset Formula $x=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x=\frac{2a^{2}t}{t^{2}+a^{2}}.$
+\end_inset
+
+ Then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\frac{2a^{2}t}{t^{2}+a^{2}}\bullet\frac{t^{2}-a^{2}}{t^{2}+a^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+A rational parametrization for the Lemniscate of Gerono is:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+x\left(t\right)=\frac{2a^{2}t}{t^{2}+a^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+y\left(t\right)=\frac{2a^{2}t\left(t^{2}-a^{2}\right)}{\left(t^{2}+a^{2}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cramer's Besace
+\end_layout
+
+\begin_layout Standard
+The Besace is a lemniscate with coefficient 
+\begin_inset Formula $a$
+\end_inset
+
+ in a position that makes the parametrization method less obvious.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x^{4}-x^{2}+\left(y^{2}+ax^{2}\right)^{2}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/pb/Documents/lm_besace.png
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that when 
+\begin_inset Formula $a=0$
+\end_inset
+
+, we have the lemniscate of Gerono of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4"
+
+\end_inset
+
+ with 
+\begin_inset Formula $a=1$
+\end_inset
+
+.
+ However, using the same initial substitution doesn't work well and another
+ approach is required.
+\end_layout
+
+\begin_layout Standard
+Rearrange 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:5"
+
+\end_inset
+
+ to collect terms of the same order:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(x,y\right)=\left(a^{2}+1\right)x^{4}+2ax^{2}y+\left(y^{2}-x^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f=f_{d}+f_{d-1}+f_{d-2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parametrization is a two step process, first in terms of 
+\begin_inset Formula $\tau$
+\end_inset
+
+ and then the more specific 
+\begin_inset Formula $\tau_{0}$
+\end_inset
+
+ in terms of a polynomial in 
+\begin_inset Formula $t$
+\end_inset
+
+ such that the polynomial ensures a discriminant becomes a perfect square.
+\end_layout
+
+\begin_layout Standard
+First, define 
+\begin_inset Formula $y=\tau x$
+\end_inset
+
+ and solve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(1,\tau\right)=x^{2}f_{4}\left(1,\tau\right)+xf_{3}\left(1,\tau\right)+f_{2}\left(1,\tau\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F\left(1,\tau\right)=\left(a^{2}+1\right)x^{2}+2a\tau x+\tau^{2}-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D\left(\tau\right)=\left(2a\tau\right)^{2}-4\left(a^{2}+1\right)^{2}\left(\tau^{2}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D\left(\tau\right)=4\left(a^{2}+1-\tau^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $D\left(\tau\right)=P^{2}.Q\left(\tau\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $Q\left(\tau\right)=\alpha+\beta\tau+\gamma\tau^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha=\left(a^{2}+1\right),\beta=0,\gamma=-1$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+allows the rationalizer to be set with parameter 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{0}=\frac{4\left(a^{2}+1\right)t}{t^{2}+4\left(a^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $D\left(\tau_{0}\right)=P^{2}.Q\left(\tau_{0}\right)=P^{2}.R^{2}\left(\tau_{0}\right)$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=\frac{\frac{-2a.4\left(a^{2}+1\right)t}{t^{2}+4\left(a^{2}+1\right)}+P.R\left(\tau_{0}\right)}{2\left(a^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=\frac{\frac{-2a.4\left(a^{2}+1\right)t}{t^{2}+4\left(a^{2}+1\right)}+2\frac{\sqrt{\left(a^{2}+1\right)}\left(t^{2}-4\left(a^{2}+1\right)\right)}{t^{2}+4\left(a^{2}+1\right)}}{2\left(a^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+A parametrization for the Besace is
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+x\left(t\right)=\frac{\frac{1}{\sqrt{\left(a^{2}+1\right)}}t^{2}-4at-4\sqrt{a^{2}+1}}{t^{2}+4\left(a^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+y\left(t\right)=\frac{4\left(a^{2}+1\right)t}{t^{2}+4\left(a^{2}+1\right)}\bullet\frac{\frac{1}{\sqrt{\left(a^{2}+1\right)}}t^{2}-4at-4\sqrt{a^{2}+1}}{t^{2}+4\left(a^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
