@@ -104,7 +104,8 @@ The implicit equation for the Lemniscate of Bernoulli is given by:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/pb/Documents/lm_bernoulli.png
+	filename lm_bernoulli.png
+	scale 50
 
 \end_inset
 
@@ -383,7 +384,8 @@ x^{2}=t\left(x-y\right)\label{eq:5}
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/pb/Documents/lm_gerono.png
+	filename lm_gerono.png
+	scale 50
 
 \end_inset
 
@@ -591,8 +593,8 @@ x^{4}-x^{2}+\left(y^{2}+ax^{2}\right)^{2}=0
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/pb/Documents/lm_besace.png
-	scale 150
+	filename lm_besace.png
+	scale 80
 
 \end_inset
 
