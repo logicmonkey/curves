@@ -1,0 +1,113 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+/*
+    www.scholarpedia.org/article/Buchberger's_algorithm
+    ----------------------------------------------------
+
+    input set of polynomials F  */
+
+/*  www.lpthe.jussieu.fr/~talon/buchberger.html  */
+sF: {x^2+2*x*y^2, x*y+2*y^3-1}$
+
+/*  from Maya Ahmed  */
+sF: {x*y-1, y^2-1}$         /*  Example 1.2.5  */
+sF: {x-u*v,y-u*v^2,z-u^2}$  /*  Example 2.2.5  */
+
+/*  from youtube/MA  */
+sF: {x^3-2*x*y-6, 2*x^2*y-4*y^2+x-7}$
+
+/*  from Bernd Sturmfels  */
+sF: {2*x+3*y+4*z-5, 3*x+4*y+5*z-2}$
+sF: {x^4-12*x^3+49*x^2-78*x+40, x^5-5*x^4+5*x^3+5*x^2-6*x}$
+sF: {w^5-x,w^10-y,w^25-z}$ /*  wxyz == PNDQ simplex minimisation  */
+
+/*  reversing parametrizations of LogicMonkey  */
+/*  Lemniscate of Gerono  */
+sF: {x*(t^2+1)-2*t,y*(t^2+1)^2-2*t*(t^2-1)}$ 
+
+/*  Tacnode  */
+sF: {x*(t^8+96*t^6+2432*t^4+6144*t^2+4096)-(((2^(9/2)+24)*t^7+(-2^(15/2)-64)*t^5+(512-2^(21/2))*t^3+(2^(27/2)-12288)*t)),
+     y*(t^8+96*t^6+2432*t^4+6144*t^2+4096)-(((2^(15/2)+192)*t^6+1024*t^4+(12288-2^(27/2))*t^2))}$
+
+/*  Lemniscate of Bernoulli  */
+sF: {x*(t^4+4)-(2*t^3 + 4*t), y*(t^4+4)-(2*t^3-4*t)}$
+
+poly_monomial_order: lex$
+/*  polynomials don't have to use all of these  */
+symbols: [t,u,v,w,x,y,z]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sG: sF$ /* initialise the Grobner basis of the ideal I */
+
+/*  set of unique pairs M from an initial set G
+      
+      G  {1,2,3,4}  
+      M  {{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}
+    
+    this is M = G x G excluding {Gi,Gi} and {Gi,Gj}={Gj,Gi}
+    
+    nested loop implementation can't be optimal, but works */
+
+sM: {}$
+lG: listify(sG)$
+for i: 1 thru cardinality(sG)-1 do
+    for j: i+1 thru cardinality(sG) do
+        sM: union(sM,fullsetify([[lG[i],lG[j]]]))$
+
+max_cardinality: cardinality(sM)$
+load(grobner)$
+    
+/*  setup complete F -> G, M  */;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/*  run Buchberger's algorithm terminating when M is empty  */
+
+do (pq: full_listify(sM),
+    
+    /*  remove first pair from M  */
+    sM: setdifference(sM,{setify(pq[1])}),
+    
+    /*  syzygy polynomial is easy to calculate, so use library  */
+    s:  poly_s_polynomial(pq[1][1],pq[1][2],symbols),
+    
+    s: 
+    
+    /*  divide s by all of G - otherwise known as normal form  */
+    h:  poly_normal_form(s,listify(sG),symbols),
+    
+    if h#0 then ( /*  syntax: h is not equal to zero  */
+        
+        /*  pair h with all members of G
+           
+              P = G x h     // Cartesian/Outer product
+        
+              {1,2,3}x{4} = {{1,4},{2,4},{3,4}} */
+        
+        sP: fullsetify(listify(cartesian_product(sG,{h}))),
+        
+        /*  add new pairs P into M and h into G  */
+        
+        sM: union(sM,sP),
+        sG: union(sG,{h})
+    ),
+    
+    if cardinality(sM)>max_cardinality then
+        max_cardinality: cardinality(sM),
+    
+    if cardinality(sM)=0 then return(0)
+)$
+
+print("F =",sF)$
+print("G =",setify(poly_reduction(listify(sG),symbols)))$
+print("Maximum cardinality of M =",max_cardinality)$
+
+print("CHECK:",poly_reduced_grobner(listify(sF),symbols))$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
