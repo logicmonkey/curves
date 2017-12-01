@@ -26,7 +26,7 @@ sF: {w^5-x,w^10-y,w^25-z}$ /*  wxyz == PNDQ simplex minimisation  */
 
 /*  reversing parametrizations of LogicMonkey  */
 /*  Lemniscate of Gerono  */
-sF: {x*(t^2+1)-2*t,y*(t^2+1)^2-2*t*(t^2-1)}$ 
+sF: {x*(t^2+1)-2*t,y*(t^2+1)^2-2*t*(t^2-1)}$
 
 /*  Tacnode  */
 sF: {x*(t^8+96*t^6+2432*t^4+6144*t^2+4096)-(((2^(9/2)+24)*t^7+(-2^(15/2)-64)*t^5+(512-2^(21/2))*t^3+(2^(27/2)-12288)*t)),
@@ -34,6 +34,14 @@ sF: {x*(t^8+96*t^6+2432*t^4+6144*t^2+4096)-(((2^(9/2)+24)*t^7+(-2^(15/2)-64)*t^5
 
 /*  Lemniscate of Bernoulli  */
 sF: {x*(t^4+4)-(2*t^3 + 4*t), y*(t^4+4)-(2*t^3-4*t)}$
+
+
+sF:{x*(u^4+4)-(2*u^3 + 4*u),
+    y*(u^4+4)*(1+v^2)-(2*u^3-4*u)*2*v,
+    z*(u^4+4)*(1+v^2)-(2*u^3-4*u)*(1-v^2)}$
+
+/*  Mobius Strip  */
+sF:{x*(1+t^2)-u*(1-t^2),y*(1+t^2)-2*u*t, z-t*(u-1)}$
 
 poly_monomial_order: lex$
 /*  polynomials don't have to use all of these  */
@@ -44,12 +52,12 @@ symbols: [t,u,v,w,x,y,z]$
 sG: sF$ /* initialise the Grobner basis of the ideal I */
 
 /*  set of unique pairs M from an initial set G
-      
-      G  {1,2,3,4}  
+
+      G  {1,2,3,4}
       M  {{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}
-    
+
     this is M = G x G excluding {Gi,Gi} and {Gi,Gj}={Gj,Gi}
-    
+
     nested loop implementation can't be optimal, but works */
 
 sM: {}$
@@ -60,7 +68,7 @@ for i: 1 thru cardinality(sG)-1 do
 
 max_cardinality: cardinality(sM)$
 load(grobner)$
-    
+
 /*  setup complete F -> G, M  */;
 /* [wxMaxima: input   end   ] */
 
@@ -68,37 +76,38 @@ load(grobner)$
 /*  run Buchberger's algorithm terminating when M is empty  */
 
 do (pq: full_listify(sM),
-    
+
     /*  remove first pair from M  */
     sM: setdifference(sM,{setify(pq[1])}),
-    
+
     /*  syzygy polynomial is easy to calculate, so use library  */
     s:  poly_s_polynomial(pq[1][1],pq[1][2],symbols),
-    
-    s: 
-    
+
+    s:
+
     /*  divide s by all of G - otherwise known as normal form  */
     h:  poly_normal_form(s,listify(sG),symbols),
-    
+
     if h#0 then ( /*  syntax: h is not equal to zero  */
-        
+
         /*  pair h with all members of G
-           
+
               P = G x h     // Cartesian/Outer product
-        
+
               {1,2,3}x{4} = {{1,4},{2,4},{3,4}} */
-        
+
         sP: fullsetify(listify(cartesian_product(sG,{h}))),
-        
+
         /*  add new pairs P into M and h into G  */
-        
+
         sM: union(sM,sP),
         sG: union(sG,{h})
     ),
-    
-    if cardinality(sM)>max_cardinality then
-        max_cardinality: cardinality(sM),
-    
+
+    if cardinality(sM)>max_cardinality then (
+        max_cardinality: cardinality(sM)
+        ),
+
     if cardinality(sM)=0 then return(0)
 )$
 
